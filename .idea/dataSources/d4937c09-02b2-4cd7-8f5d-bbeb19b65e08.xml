@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ssm_crud@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="ssm_crud">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="earofpark"/>
+    <schema id="4" parent="1" name="hibernate"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="javamail"/>
+    <schema id="7" parent="1" name="lianxi"/>
+    <schema id="8" parent="1" name="mybatis"/>
+    <schema id="9" parent="1" name="mysql"/>
+    <schema id="10" parent="1" name="performance_schema"/>
+    <schema id="11" parent="1" name="spring"/>
+    <schema id="12" parent="1" name="springdata"/>
+    <schema id="13" parent="1" name="test"/>
+    <schema id="14" parent="1" name="thefirsttest"/>
+    <schema id="15" parent="1" name="thesecondtest"/>
+    <schema id="16" parent="1" name="thethirdtest"/>
+    <table id="17" parent="2" name="appointment">
+      <Comment>预约图书表</Comment>
+    </table>
+    <table id="18" parent="2" name="book">
+      <Comment>图书表</Comment>
+    </table>
+    <table id="19" parent="2" name="tbl_dept"/>
+    <table id="20" parent="2" name="tbl_emp"/>
+    <column id="21" parent="17" name="book_id">
+      <Position>1</Position>
+      <Comment>图书ID</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="17" name="student_id">
+      <Position>2</Position>
+      <Comment>学号</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="17" name="appoint_time">
+      <Position>3</Position>
+      <Comment>预约时间</Comment>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="24" parent="17" name="idx_appoint_time">
+      <ColNames>appoint_time</ColNames>
+    </index>
+    <key id="25" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>book_id
+student_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="18" name="book_id">
+      <Position>1</Position>
+      <Comment>图书ID</Comment>
+      <DataType>int(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="27" parent="18" name="name">
+      <Position>2</Position>
+      <Comment>图书名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="18" name="number">
+      <Position>3</Position>
+      <Comment>馆藏数量</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="29" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>book_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="19" name="dept_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="19" name="dept_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="32" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>dept_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="20" name="emp_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="20" name="emp_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="20" name="gender">
+      <Position>3</Position>
+      <DataType>varchar(1)|0</DataType>
+    </column>
+    <column id="36" parent="20" name="email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="37" parent="20" name="d_id">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="38" parent="20" name="fk_emp_dept">
+      <ColNames>d_id</ColNames>
+    </index>
+    <key id="39" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>emp_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="20" name="fk_emp_dept">
+      <ColNames>d_id</ColNames>
+      <RefSchemaName>ssm_crud</RefSchemaName>
+      <RefTableName>tbl_dept</RefTableName>
+      <RefColNames>dept_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
